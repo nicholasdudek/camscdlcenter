@@ -1087,6 +1087,25 @@
             transition: all 0.3s;
         }
 
+        /* Light mode form fixes */
+        [data-theme="light"] .form-group input,
+        [data-theme="light"] .form-group select,
+        [data-theme="light"] .form-group textarea {
+            color: var(--asphalt-dark);
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="light"] .form-group input::placeholder,
+        [data-theme="light"] .form-group textarea::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="light"] .form-group select option {
+            background: white;
+            color: var(--asphalt-dark);
+        }
+
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -1830,7 +1849,7 @@
                     <div class="contact-detail-icon">📞</div>
                     <div>
                         <h4>Phone</h4>
-                        <p><a href="tel:+16896981500">(689) 698-1500</a></p>
+                        <p><a href="tel:+14074495254">(407) 449-5254</a></p>
                     </div>
                 </div>
                 <div class="contact-detail">
@@ -1844,7 +1863,7 @@
                     <div class="contact-detail-icon">🕐</div>
                     <div>
                         <h4>Hours</h4>
-                        <p>Monday - Saturday<br>8:00 AM - 6:00 PM</p>
+                        <p>Monday - Friday<br>8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
                 <div class="social-links">
@@ -1924,7 +1943,7 @@
                 <ul>
                     <li>7 East 17th Street</li>
                     <li>St. Cloud, FL 34769</li>
-                    <li><a href="tel:+16896981500">(689) 698-1500</a></li>
+                    <li><a href="tel:+14074495254">(407) 449-5254</a></li>
                     <li><a href="mailto:camscdlcenter@camsgroupinc.com">camscdlcenter@camsgroupinc.com</a></li>
                 </ul>
             </div>
@@ -2043,7 +2062,7 @@
                     throw new Error('Failed to send message');
                 }
             } catch (error) {
-                formMessage.textContent = 'Sorry, there was an error sending your message. Please call us directly at (689) 698-1500.';
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please call us directly at (407) 449-5254.';
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
             } finally {
