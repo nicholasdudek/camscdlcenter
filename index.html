@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cam's CDL Center - Professional CDL training and testing facility in Florida. Get your Class A CDL license with expert instruction, modern fleet, and high success rates.">
+    <meta name="keywords" content="CDL training, CDL test, Florida CDL, Class A license, truck driver training, commercial driver license">
+    <meta name="author" content="Cam's CDL Center">
+    <meta name="theme-color" content="#FF6B35">
     <title>Cam's CDL Center - Professional CDL Training in Florida</title>
     <style>
         * {
@@ -93,6 +97,23 @@
             scroll-behavior: smooth;
         }
 
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--brand-primary);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -114,6 +135,46 @@
 
             .nav-links a {
                 padding: 12px 16px;
+            }
+        }
+
+        /* Accessibility - Focus Indicators */
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 3px solid var(--brand-accent);
+            outline-offset: 2px;
+        }
+
+        .nav-links a:focus {
+            outline: 3px solid var(--brand-accent);
+            outline-offset: 4px;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --bg-primary: #ffffff;
+            }
+            
+            [data-theme="dark"] {
+                --text-primary: #ffffff;
+                --bg-primary: #000000;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
 
@@ -1257,7 +1318,7 @@
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: block; 
             }
 
             .theme-toggle {
@@ -1553,11 +1614,14 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Scroll Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <div class="scroll-indicator" id="scrollIndicator" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo-container">
                 <a href="#home" class="logo-link" title="Cam's CDL Center">
@@ -1567,7 +1631,7 @@
                     <img src="ll.webp" alt="Cam's Transport Logo">
                 </a>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1580,12 +1644,14 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" aria-labelledby="hero-heading">
         <div class="truck-animation">🚛</div>
         <div class="hero-content">
-            <div class="retro-badge" style="display: inline-block; margin-bottom: 20px;">🏆 #1 IN FLORIDA</div>
-            <h1 class="neon-glow">Get Your CDL License Fast</h1>
+            <div class="retro-badge" style="display: inline-block; margin-bottom: 20px;" role="text">🏆 #1 IN FLORIDA</div>
+            <h1 class="neon-glow" id="hero-heading">Get Your CDL License Fast</h1>
             <p>Professional CDL Training & Testing Facility in Florida - Start Your Trucking Career Today</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary" style="background: var(--road-yellow); color: var(--asphalt-dark); font-weight: 700; box-shadow: 0 4px 0 #cc9900, 0 8px 20px rgba(0,0,0,0.3);">Schedule Your Test 🚀</a>
@@ -1595,9 +1661,9 @@
     </section>
 
     <!-- Mission Section -->
-    <section class="section mission" id="about">
+    <section class="section mission" id="about" aria-labelledby="mission-heading">
         <div class="section-header fade-in">
-            <h2 class="section-title">Our Mission</h2>
+            <h2 class="section-title" id="mission-heading">Our Mission</h2>
             <p class="section-subtitle">At Cam's CDL Center, we provide the best possible conditions for all test takers. We're dedicated to helping drivers succeed in obtaining their Commercial Driver's License efficiently and professionally.</p>
         </div>
         <div class="mission-content">
@@ -1793,22 +1859,22 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" aria-label="Contact form">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                        <input type="text" id="name" name="name" required placeholder="John Doe" aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <input type="email" id="email" name="email" required placeholder="john@example.com" aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+                        <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890" aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="bestTime">Best Time to Reach You *</label>
-                        <select id="bestTime" name="bestTime" required>
+                        <select id="bestTime" name="bestTime" required aria-required="true">
                             <option value="">Select a time...</option>
                             <option value="morning">Morning (8AM - 12PM)</option>
                             <option value="afternoon">Afternoon (12PM - 5PM)</option>
@@ -1821,14 +1887,15 @@
                         <textarea id="message" name="message" placeholder="Tell us about your CDL training needs..."></textarea>
                     </div>
                     <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
-                    <div class="form-message" id="formMessage"></div>
+                    <div class="form-message" id="formMessage" role="alert" aria-live="polite"></div>
                 </form>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo" aria-label="Site footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Cam's CDL Center</h3>
@@ -1873,7 +1940,8 @@
         const navLinks = document.getElementById('navLinks');
         
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
         });
 
         // Close mobile menu when clicking a link
@@ -1900,6 +1968,7 @@
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             scrollIndicator.style.width = scrolled + '%';
+            scrollIndicator.setAttribute('aria-valuenow', Math.round(scrolled));
         });
 
         // Fade-in animation on scroll
