@@ -68,6 +68,27 @@
             --border-color: #3a3a3a;
         }
 
+        /* Dark mode specific overrides for better contrast */
+        [data-theme="dark"] .mission-card h3 {
+            color: var(--brand-accent);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .feature-item {
+            background: var(--card-bg);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: var(--road-yellow);
+            color: var(--asphalt-dark);
+        }
+
+        [data-theme="dark"] .program-btn {
+            background: var(--road-yellow);
+            color: var(--asphalt-dark);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -125,7 +146,7 @@
         .logo {
             font-size: 22px;
             font-weight: 600;
-            color: var(--apple-dark);
+            color: var(--text-primary);
             text-decoration: none;
             letter-spacing: -0.5px;
         }
@@ -169,13 +190,19 @@
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 14px;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            opacity: 0.85;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         .nav-links a:hover {
             opacity: 1;
+            color: var(--brand-primary);
+            transform: translateY(-1px);
         }
 
         .theme-toggle {
@@ -207,10 +234,14 @@
         .cta-btn {
             background: var(--brand-primary);
             color: white !important;
-            padding: 8px 18px;
+            padding: 10px 22px;
             border-radius: 20px;
             opacity: 1 !important;
             transition: all 0.3s;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 13px;
         }
 
         .cta-btn:hover {
@@ -226,7 +257,7 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: var(--apple-dark);
+            color: var(--text-primary);
         }
 
         /* Hero Section */
@@ -384,7 +415,8 @@
 
         .btn-primary {
             background: white;
-            color: var(--apple-dark);
+            color: var(--asphalt-dark);
+            font-weight: 700;
         }
 
         .btn-primary:hover {
@@ -660,7 +692,7 @@
 
         .program-btn {
             background: white;
-            color: var(--apple-blue);
+            color: var(--diesel-blue);
             padding: 12px 30px;
             border-radius: 20px;
             text-decoration: none;
@@ -673,7 +705,8 @@
         }
 
         .program-btn:hover {
-            background: var(--apple-light-gray);
+            background: var(--road-yellow);
+            color: var(--asphalt-dark);
             transform: scale(1.05);
         }
 
@@ -885,7 +918,7 @@
 
         .contact-detail-icon {
             font-size: 1.5rem;
-            color: var(--apple-blue);
+            color: var(--brand-accent);
         }
 
         .contact-detail h4 {
@@ -939,7 +972,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--apple-blue);
+            border-color: var(--brand-accent);
             background: rgba(255, 255, 255, 0.15);
         }
 
