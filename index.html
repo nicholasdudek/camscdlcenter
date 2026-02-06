@@ -133,6 +133,16 @@
             box-shadow: 0 2px 8px var(--shadow);
         }
 
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            
+            .nav-links {
+                display: flex !important;
+            }
+        }
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -140,7 +150,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 48px;
+            min-height: 48px;
+            height: auto;
+            position: relative;
         }
 
         .logo {
@@ -155,6 +167,8 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-shrink: 0;
+            z-index: 10;
         }
 
         .logo-link {
@@ -162,6 +176,7 @@
             align-items: center;
             transition: all 0.3s;
             opacity: 0.95;
+            flex-shrink: 0;
         }
 
         .logo-link:hover {
@@ -187,6 +202,16 @@
             align-items: center;
         }
 
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
@@ -209,16 +234,17 @@
             background: var(--bg-accent);
             border: 2px solid var(--border-color);
             color: var(--text-primary);
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s var(--transition-smooth);
-            margin-left: 15px;
+            margin-left: 10px;
+            flex-shrink: 0;
         }
 
         .theme-toggle:hover {
@@ -255,9 +281,17 @@
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             color: var(--text-primary);
+            padding: 8px;
+            z-index: 1001;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--brand-primary);
+            transform: scale(1.1);
         }
 
         /* Hero Section */
@@ -526,8 +560,18 @@
             box-shadow: 0 4px 20px var(--shadow);
             transition: all 0.3s var(--transition-smooth);
             border-top: 5px solid var(--road-yellow);
+            border: 3px solid rgba(255, 107, 53, 0.3);
+            border-top: 5px solid var(--highway-orange);
             position: relative;
             overflow: hidden;
+        }
+
+        [data-theme="light"] .mission-card {
+            border: 3px solid var(--highway-orange);
+            border-top: 5px solid var(--highway-orange);
+            box-shadow: 
+                0 4px 20px rgba(255, 107, 53, 0.15),
+                0 0 0 1px rgba(255, 107, 53, 0.1);
         }
 
         .mission-card::before {
@@ -630,7 +674,8 @@
             border: 4px solid var(--road-yellow);
             box-shadow: 
                 0 10px 30px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 0 2px rgba(220, 20, 60, 0.3);
         }
 
         .program-card::before {
@@ -766,8 +811,15 @@
             border-radius: 20px;
             text-align: center;
             transition: all 0.3s var(--transition-smooth);
-            border: 3px solid transparent;
+            border: 3px solid var(--border-color);
             box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        [data-theme="light"] .feature-item {
+            border: 3px solid var(--diesel-blue);
+            box-shadow: 
+                0 4px 15px rgba(0, 78, 137, 0.15),
+                0 0 0 1px rgba(0, 78, 137, 0.1);
         }
 
         .feature-item:hover {
@@ -776,7 +828,13 @@
                 0 15px 40px var(--shadow-lg),
                 0 0 20px rgba(255, 107, 53, 0.2);
             border-color: var(--highway-orange);
-            background: var(--card-bg);
+        }
+
+        [data-theme="light"] .feature-item:hover {
+            border-color: var(--highway-orange);
+            box-shadow: 
+                0 15px 40px rgba(255, 107, 53, 0.25),
+                0 0 30px rgba(255, 107, 53, 0.2);
         }
 
         .feature-icon {
@@ -1167,19 +1225,21 @@
                 top: 48px;
                 left: 0;
                 right: 0;
-                background: rgba(255, 255, 255, 0.98);
+                background: var(--nav-bg);
                 backdrop-filter: saturate(180%) blur(20px);
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 4px 12px var(--shadow);
                 gap: 0;
+                z-index: 1000;
+                border-top: 1px solid var(--border-color);
             }
 
             .nav-links li {
                 width: 100%;
                 text-align: center;
                 padding: 15px 0;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                border-bottom: 1px solid var(--border-color);
             }
 
             .nav-links li:last-child {
@@ -1198,7 +1258,12 @@
 
             .mobile-menu-btn {
                 display: block;
-                padding: 8px;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                margin-left: 0;
             }
 
             .section {
@@ -1248,6 +1313,7 @@
         @media (max-width: 480px) {
             .nav-container {
                 padding: 0 15px;
+                min-height: 56px;
             }
 
             .logo {
@@ -1264,6 +1330,16 @@
 
             .logo-link:first-child img {
                 height: 35px;
+            }
+
+            .mobile-menu-btn {
+                font-size: 26px;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
             }
 
             .hero {
