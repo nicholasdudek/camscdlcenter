@@ -2203,8 +2203,12 @@
             }
         });
 
-        // DevTools Detection - Advanced Method
+        // DevTools Detection - Advanced Method (Desktop Only)
         (function() {
+            // Skip detection on mobile devices
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) return;
+            
             const devtools = { isOpen: false, orientation: null };
             const threshold = 160;
             
