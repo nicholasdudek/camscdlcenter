@@ -115,21 +115,8 @@
             scroll-behavior: smooth;
         }
 
-        /* Anti-Copy Protection */
-        * {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
-        }
-
-        input, textarea {
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
-        }
+        /* Removed user-select restrictions for accessibility compliance */
+        /* Users with assistive technologies need to be able to select and read text */
 
         /* Skip Link for Accessibility */
         .skip-link {
@@ -146,6 +133,19 @@
 
         .skip-link:focus {
             top: 0;
+        }
+
+        /* Screen Reader Only Text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         body {
@@ -1724,14 +1724,14 @@
     <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="home" aria-labelledby="hero-heading">
-        <div class="truck-animation">🚛</div>
+        <div class="truck-animation" aria-hidden="true">🚛</div>
         <div class="hero-content">
-            <div class="retro-badge" style="display: inline-block; margin-bottom: 20px;" role="text">🏆 #1 IN FLORIDA</div>
+            <div class="retro-badge" style="display: inline-block; margin-bottom: 20px;"><span aria-hidden="true">🏆</span> #1 IN FLORIDA</div>
             <h1 class="neon-glow" id="hero-heading">Get Your CDL License Fast</h1>
             <p>Professional CDL Training & Testing Facility in Florida - Start Your Trucking Career Today</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary" style="background: var(--road-yellow); color: var(--asphalt-dark); font-weight: 700; box-shadow: 0 4px 0 #cc9900, 0 8px 20px rgba(0,0,0,0.3);">Schedule Your Test 🚀</a>
-                <a href="#programs" class="btn-secondary">View Programs 📋</a>
+                <a href="#contact" class="btn-primary" style="background: var(--road-yellow); color: var(--asphalt-dark); font-weight: 700; box-shadow: 0 4px 0 #cc9900, 0 8px 20px rgba(0,0,0,0.3);">Schedule Your Test <span aria-hidden="true">🚀</span></a>
+                <a href="#programs" class="btn-secondary">View Programs <span aria-hidden="true">📋</span></a>
             </div>
         </div>
     </section>
@@ -1744,26 +1744,26 @@
         </div>
         <div class="mission-content">
             <div class="mission-card fade-in">
-                <h3>🎯 Expert Training</h3>
+                <h3><span aria-hidden="true">🎯</span> Expert Training</h3>
                 <p>Our experienced instructors bring years of real-world trucking experience to provide you with the most comprehensive CDL training in Florida.</p>
             </div>
             <div class="mission-card fade-in">
-                <h3>🚛 Modern Fleet</h3>
+                <h3><span aria-hidden="true">🚛</span> Modern Fleet</h3>
                 <p>Train with our well-maintained fleet of commercial vehicles, ensuring you're prepared for real-world driving conditions.</p>
             </div>
             <div class="mission-card fade-in">
-                <h3>✅ High Success Rate</h3>
+                <h3><span aria-hidden="true">✅</span> High Success Rate</h3>
                 <p>Our students consistently achieve high pass rates, thanks to our proven training methods and personalized attention.</p>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section class="section programs" id="programs" style="position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 20px; right: 20px; font-size: 100px; opacity: 0.05; transform: rotate(15deg);">🚛</div>
-        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 80px; opacity: 0.05; transform: rotate(-15deg);">⛽</div>
+    <section class="section programs" id="programs" aria-labelledby="programs-heading" style="position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 20px; right: 20px; font-size: 100px; opacity: 0.05; transform: rotate(15deg);" aria-hidden="true">🚛</div>
+        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 80px; opacity: 0.05; transform: rotate(-15deg);" aria-hidden="true">⛽</div>
         <div class="section-header fade-in">
-            <div class="retro-badge" style="margin-bottom: 20px;">⭐ BEST PRICES IN FLORIDA ⭐</div>
+            <div class="retro-badge" style="margin-bottom: 20px;"><span aria-hidden="true">⭐</span> BEST PRICES IN FLORIDA <span aria-hidden="true">⭐</span></div>
             <h2 class="section-title">CDL Programs & Pricing</h2>
             <p class="section-subtitle">Choose the program that fits your needs and start your journey to becoming a professional truck driver</p>
         </div>
@@ -1772,10 +1772,10 @@
                 <h3>CDL Class A Test</h3>
                 <div class="program-price">$450</div>
                 <ul>
-                    <li>✓ Official CDL Testing</li>
-                    <li>✓ Fast Scheduling</li>
-                    <li>✓ Professional Examiners</li>
-                    <li>✓ Same-Day Results</li>
+                    <li><span aria-hidden="true">✓</span> Official CDL Testing</li>
+                    <li><span aria-hidden="true">✓</span> Fast Scheduling</li>
+                    <li><span aria-hidden="true">✓</span> Professional Examiners</li>
+                    <li><span aria-hidden="true">✓</span> Same-Day Results</li>
                 </ul>
                 <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">Cancellation Policy: Refunds available for cancellations made at least 3 business days prior to test date.</p>
                 <a href="tel:+16896981500" class="program-btn">Book Now</a>
@@ -1784,39 +1784,39 @@
     </section>
 
     <!-- Features Section -->
-    <section class="section features" id="features">
+    <section class="section features" id="features" aria-labelledby="features-heading">
         <div class="section-header fade-in">
-            <h2 class="section-title">Why Choose Cam's CDL Center</h2>
+            <h2 class="section-title" id="features-heading">Why Choose Cam's CDL Center</h2>
             <p class="section-subtitle">We're the #1 CDL testing facility in Florida</p>
         </div>
         <div class="features-grid">
             <div class="feature-item fade-in">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon" aria-hidden="true">⚡</div>
                 <h3>Fast Scheduling</h3>
                 <p>Get your test scheduled quickly with our flexible appointment system</p>
             </div>
             <div class="feature-item fade-in">
-                <div class="feature-icon">🏆</div>
+                <div class="feature-icon" aria-hidden="true">🏆</div>
                 <h3>Official Testing</h3>
                 <p>State-approved testing facility with certified examiners</p>
             </div>
             <div class="feature-item fade-in">
-                <div class="feature-icon">💼</div>
+                <div class="feature-icon" aria-hidden="true">💼</div>
                 <h3>Professional Staff</h3>
                 <p>Experienced instructors dedicated to your success</p>
             </div>
             <div class="feature-item fade-in">
-                <div class="feature-icon">📍</div>
+                <div class="feature-icon" aria-hidden="true">📍</div>
                 <h3>Convenient Location</h3>
                 <p>Easy to find facility in Orlando, Florida</p>
             </div>
             <div class="feature-item fade-in">
-                <div class="feature-icon">🎓</div>
+                <div class="feature-icon" aria-hidden="true">🎓</div>
                 <h3>Comprehensive Training</h3>
                 <p>From basics to advanced skills, we cover it all</p>
             </div>
             <div class="feature-item fade-in">
-                <div class="feature-icon">🌟</div>
+                <div class="feature-icon" aria-hidden="true">🌟</div>
                 <h3>Proven Results</h3>
                 <p>High pass rates and satisfied students</p>
             </div>
@@ -1824,9 +1824,9 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
         <div class="section-header fade-in">
-            <h2 class="section-title">Photo Gallery</h2>
+            <h2 class="section-title" id="gallery-heading">Photo Gallery</h2>
             <p class="section-subtitle">See our facility, fleet, and success stories</p>
         </div>
         <div class="gallery-grid">
@@ -1861,49 +1861,49 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
         <div class="section-header">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" id="contact-heading">Get In Touch</h2>
             <p class="section-subtitle">Ready to start your CDL journey? Contact us today!</p>
         </div>
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Contact Information</h3>
                 <div class="contact-detail">
-                    <div class="contact-detail-icon">📍</div>
+                    <div class="contact-detail-icon" aria-hidden="true">📍</div>
                     <div>
                         <h4>Address</h4>
                         <p>7 East 17th Street<br>St. Cloud, Florida 34769</p>
                     </div>
                 </div>
                 <div class="contact-detail">
-                    <div class="contact-detail-icon">📞</div>
+                    <div class="contact-detail-icon" aria-hidden="true">📞</div>
                     <div>
                         <h4>Phone</h4>
                         <p><a href="tel:+14074495254">(407) 449-5254</a></p>
                     </div>
                 </div>
                 <div class="contact-detail">
-                    <div class="contact-detail-icon">✉️</div>
+                    <div class="contact-detail-icon" aria-hidden="true">✉️</div>
                     <div>
                         <h4>Email</h4>
                         <p><a href="mailto:camscdlcenter@camsgroupinc.com">camscdlcenter@camsgroupinc.com</a></p>
                     </div>
                 </div>
                 <div class="contact-detail">
-                    <div class="contact-detail-icon">🕐</div>
+                    <div class="contact-detail-icon" aria-hidden="true">🕐</div>
                     <div>
                         <h4>Hours</h4>
                         <p>Monday - Friday<br>8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/camsgroupinc" target="_blank">
-                        <span class="social-icon">📘</span>
+                    <a href="https://www.facebook.com/camsgroupinc" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page (opens in new window)">
+                        <span class="social-icon" aria-hidden="true">📘</span>
                         <span class="social-text">Facebook</span>
                     </a>
-                    <a href="https://www.instagram.com/camsgroupinc" target="_blank">
-                        <span class="social-icon">📷</span>
+                    <a href="https://www.instagram.com/camsgroupinc" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page (opens in new window)">
+                        <span class="social-icon" aria-hidden="true">📷</span>
                         <span class="social-text">Instagram</span>
                     </a>
                 </div>
@@ -2059,7 +2059,16 @@
             // Show loading state
             const originalText = submitBtn.textContent;
             submitBtn.innerHTML = '<span class="loading"></span>';
+            submitBtn.setAttribute('aria-busy', 'true');
             submitBtn.disabled = true;
+            
+            // Announce loading to screen readers
+            const loadingAnnouncement = document.createElement('div');
+            loadingAnnouncement.setAttribute('role', 'status');
+            loadingAnnouncement.setAttribute('aria-live', 'polite');
+            loadingAnnouncement.className = 'sr-only';
+            loadingAnnouncement.textContent = 'Sending your message, please wait...';
+            document.body.appendChild(loadingAnnouncement);
 
             try {
                 // Send email using FormSubmit.co (free email service)
@@ -2099,7 +2108,12 @@
                 formMessage.style.display = 'block';
             } finally {
                 submitBtn.textContent = originalText;
+                submitBtn.removeAttribute('aria-busy');
                 submitBtn.disabled = false;
+                
+                // Remove loading announcement
+                const announcement = document.querySelector('.sr-only');
+                if (announcement) announcement.remove();
             }
         });
 
@@ -2151,13 +2165,7 @@
             return false;
         });
 
-        // Disable text selection via mouse
-        document.addEventListener('selectstart', function(e) {
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                return false;
-            }
-        });
+        // Removed selectstart prevention for accessibility - screen readers need text selection
 
         // Disable copy, cut, and paste (except in input fields)
         document.addEventListener('copy', function(e) {
@@ -2195,12 +2203,7 @@
                 return false;
             }
 
-            // Disable Ctrl+A (select all) except in input fields
-            if ((e.ctrlKey || e.metaKey) && e.key === 'a' && 
-                e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                return false;
-            }
+            // Removed Ctrl+A prevention for accessibility - screen readers use this shortcut
         });
 
         // DevTools Detection - Advanced Method (Desktop Only)
