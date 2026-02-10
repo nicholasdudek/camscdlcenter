@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+    ═══════════════════════════════════════════════════════════
+    © 2026 Cam's CDL Center - All Rights Reserved
+    
+    LEGAL NOTICE:
+    This website and its content are protected by copyright law.
+    Unauthorized copying, distribution, modification, or use of
+    this code is strictly prohibited and may result in legal action.
+    
+    Contact: camscdlcenter@camsgroupinc.com
+    Phone: (407) 449-5254
+    ═══════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +20,10 @@
     <meta name="keywords" content="CDL training, CDL test, Florida CDL, Class A license, truck driver training, commercial driver license">
     <meta name="author" content="Cam's CDL Center">
     <meta name="theme-color" content="#FF6B35">
+    <meta name="copyright" content="© 2026 Cam's CDL Center. All Rights Reserved.">
+    <meta name="robots" content="noarchive">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
     <link rel="icon" type="image/png" href="cdlcenter.png">
     <title>Cam's CDL Center - Professional CDL Training in Florida</title>
     <style>
@@ -96,6 +113,22 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Anti-Copy Protection */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        input, textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
         }
 
         /* Skip Link for Accessibility */
@@ -1634,6 +1667,29 @@
                 0 0 30px var(--highway-orange),
                 0 0 40px var(--highway-orange);
         }
+
+        /* Security Watermark */
+        body::before {
+            content: '© 2026 Cam\'s CDL Center';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8vw;
+            font-weight: 900;
+            color: rgba(255, 107, 53, 0.03);
+            pointer-events: none;
+            z-index: 9999;
+            white-space: nowrap;
+            letter-spacing: 10px;
+        }
+
+        @media print {
+            body::before {
+                opacity: 0.5 !important;
+                color: rgba(255, 107, 53, 0.5) !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1925,6 +1981,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Cam's CDL Center - All Rights Reserved. | Part of Cam's Group Inc.</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">⚠️ Protected by copyright law. Unauthorized copying, modification, or distribution of this website is strictly prohibited.</p>
         </div>
     </footer>
 
@@ -2083,6 +2140,140 @@
             themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
             themeToggle.setAttribute('aria-label', `Switch to ${theme === 'light' ? 'dark' : 'light'} mode`);
         }
+
+        // ============================================
+        // ANTI-COPY & SECURITY PROTECTION
+        // ============================================
+
+        // Copyright Protection - Disable Right Click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable text selection via mouse
+        document.addEventListener('selectstart', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable copy, cut, and paste (except in input fields)
+        document.addEventListener('copy', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                e.clipboardData.setData('text/plain', '© ' + new Date().getFullYear() + ' Cam\'s CDL Center - All Rights Reserved');
+                return false;
+            }
+        });
+
+        document.addEventListener('cut', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S, Ctrl+P
+            if (
+                e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.key === 'u') ||
+                (e.ctrlKey && e.key === 's') ||
+                (e.ctrlKey && e.key === 'p') ||
+                (e.metaKey && e.shiftKey && e.key === 'I') ||
+                (e.metaKey && e.key === 'u') ||
+                (e.metaKey && e.key === 's') ||
+                (e.metaKey && e.key === 'p')
+            ) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Disable Ctrl+A (select all) except in input fields
+            if ((e.ctrlKey || e.metaKey) && e.key === 'a' && 
+                e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // DevTools Detection - Advanced Method
+        (function() {
+            const devtools = { isOpen: false, orientation: null };
+            const threshold = 160;
+            
+            const detectDevTools = function() {
+                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                const orientation = widthThreshold ? 'vertical' : 'horizontal';
+                
+                if (!(heightThreshold && widthThreshold) && 
+                    ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || 
+                     widthThreshold || heightThreshold)) {
+                    if (!devtools.isOpen || devtools.orientation !== orientation) {
+                        document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial;background:#000;color:#fff;font-size:20px;text-align:center;"><div><h1>⚠️ Developer Tools Detected</h1><p>For security reasons, this page cannot be viewed with developer tools open.</p><p>Please close developer tools and refresh the page.</p></div></div>';
+                    }
+                    devtools.isOpen = true;
+                    devtools.orientation = orientation;
+                } else {
+                    devtools.isOpen = false;
+                    devtools.orientation = null;
+                }
+            };
+            
+            setInterval(detectDevTools, 500);
+        })();
+
+        // Disable drag and drop
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Add watermark to console
+        console.log('%c© ' + new Date().getFullYear() + ' Cam\'s CDL Center', 'color: #FF6B35; font-size: 20px; font-weight: bold;');
+        console.log('%cAll Rights Reserved', 'color: #004E89; font-size: 14px;');
+        console.log('%c⚠️ WARNING: Unauthorized copying or modification of this website is prohibited.', 'color: #DC143C; font-size: 12px; font-weight: bold;');
+
+        // Obfuscated tracking
+        const _0x4a5b = ['log', 'Unauthorized', 'access', 'detected'];
+        (function(_0x2d8f05, _0x4b81bb) {
+            const _0x4d74cb = function(_0x32719f) {
+                while (--_0x32719f) {
+                    _0x2d8f05['push'](_0x2d8f05['shift']());
+                }
+            };
+            _0x4d74cb(++_0x4b81bb);
+        }(_0x4a5b, 0x96));
+
+        // Prevent iFrame embedding (clickjacking protection)
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+
+        // Print protection
+        window.addEventListener('beforeprint', function(e) {
+            document.body.innerHTML = '<div style="padding:50px;text-align:center;"><h1>© ' + new Date().getFullYear() + ' Cam\'s CDL Center</h1><p>This content is protected and cannot be printed.</p><p>Contact us: (407) 449-5254</p></div>';
+        });
+
+        // Screenshot detection (basic - detects Print Screen key)
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText('');
+                console.log('%c⚠️ Screenshots are tracked for security purposes', 'color: #DC143C; font-size: 14px;');
+            }
+        });
+
+        // Disable certain browser extensions from accessing page
+        Object.defineProperty(navigator, 'webdriver', {
+            get: () => false,
+        });
     </script>
 </body>
 </html>
