@@ -29,3 +29,39 @@ Temporary Items
 *.swp
 *.swo
 *~
+
+# Security - Private Keys and Secrets
+*.pem
+*.key
+*.p12
+*.pfx
+*.pkcs12
+*.jks
+*.keystore
+*.cer
+*.crt
+id_rsa
+id_rsa.*
+id_dsa
+id_dsa.*
+id_ecdsa
+id_ecdsa.*
+id_ed25519
+id_ed25519.*
+*.ppk
+*.ovpn
+
+# Environment and Configuration Files
+.env
+.env.*
+!.env.example
+*.local
+config/secrets.yml
+config/credentials.yml
+
+# Cloud Provider Credentials
+.aws/
+.gcp/
+.azure/
+credentials.json
+serviceaccount.json
