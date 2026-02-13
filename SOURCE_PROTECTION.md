@@ -56,14 +56,11 @@ Multiple watermarks strategically placed throughout the HTML:
   - Rotated at 45 degrees with low opacity
   - Automatically shows/hides based on dev tools state
 
-### 6. **Obfuscation Layer**
+### 6. **Code Obfuscation**
 
-- **Location:** Decoy script in `<head>`
-- **Features:**
-  - Obfuscated variable names and array operations
-  - Encoded copyright notices
-  - Session storage tracking
-  - Makes source code harder to understand
+- **Removed** - Dead code and false claims removed for code clarity
+- Watermarks and legal notices provide sufficient deterrent
+- Clean, maintainable code prioritized
 
 ### 7. **Existing Protections (Retained)**
 
@@ -83,16 +80,18 @@ All previous protections remain active:
 - Website functions normally
 - No impact on accessibility or usability
 - Contact forms and input fields work as expected
+- No intrusive popups or warnings
 
 ### For Source Code Viewers
-When someone attempts to view the source code:
+When someone views the source code:
 
-1. **Initial Access:** Legal notices and watermarks are immediately visible
-2. **View-Source Protocol:** Automatic redirect to blank page
-3. **Developer Tools:** Page content is replaced with warning message
-4. **Inspection Mode:** Visual watermark overlay appears
-5. **Repeated Attempts:** Console warnings about monitoring
-6. **Copy Attempts:** Copyright text replaces clipboard content
+1. **Legal Notices:** Immediately visible copyright statements throughout HTML
+2. **Copyright Watermarks:** Multiple watermark comments at strategic locations
+3. **Console Notices:** When Ctrl+U is pressed, copyright notice appears in console
+4. **Visual Watermark:** Subtle overlay appears if developer tools are open
+5. **Copy Protection:** Existing protections prevent easy text copying from rendered page
+
+**Note:** These serve as legal deterrents and make unauthorized copying ethically and legally problematic, but do not prevent technical access to source code (which is impossible due to browser security design).
 
 ## Technical Implementation
 

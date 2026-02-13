@@ -12,7 +12,6 @@
     1. You will not copy, modify, or distribute this code
     2. You understand this code is proprietary and confidential
     3. Unauthorized use may result in legal action and penalties
-    4. All source code viewing is logged and monitored
     
     Contact: camscdlcenter@camsgroupinc.com
     Phone: (407) 449-5254
@@ -32,8 +31,8 @@
                 const widthThreshold = window.outerWidth - window.innerWidth > 200;
                 const heightThreshold = window.outerHeight - window.innerHeight > 200;
                 
-                // Only trigger on extreme size differences to avoid false positives
-                if (widthThreshold && heightThreshold) {
+                // Check if dev tools are docked (side OR bottom)
+                if (widthThreshold || heightThreshold) {
                     console.warn('Developer tools may be open. Source code is protected by copyright.');
                 }
             };
@@ -1752,42 +1751,24 @@
 </style>
 <!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
 
-<!-- Security Tracking: Page view logged - 2026-02-13T21:41:17.894Z -->
-<!-- WARNING: Source code access is monitored and logged -->
-<!-- Unauthorized copying or distribution is strictly prohibited -->
-
-<script>
-// Decoy security layer - obfuscated monitoring
-(function() {
-    var _0x3e4f = ['charAt', 'fromCharCode', 'indexOf', 'length', 'replace', 'split'];
-    var _0x4a2c = function(_0x2d8f05, _0x4b81bb) {
-        _0x2d8f05 = _0x2d8f05 - 0x0;
-        var _0x4d74cb = _0x3e4f[_0x2d8f05];
-        return _0x4d74cb;
-    };
-    
-    // Encoded copyright notice
-    var _encoded = '0043006f0070007900720069006700680074002000500072006f00740065006300740065006400200043006f006e00740065006e0074';
-    
-    // Monitor source access attempts
-    window._srcMon = true;
-    
-    // Obfuscated timestamp
-    var _ts = btoa(new Date().toISOString());
-    sessionStorage.setItem('_vts', _ts);
-})();
-</script>
+<!-- 
+    © 2026 Cam's CDL Center - All Rights Reserved
+    This website and its content are protected by copyright law.
+    Unauthorized copying or distribution is strictly prohibited.
+-->
 
 </head>
 <!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
 <body>
 
 <!-- 
-    ENCODED SECURITY NOTICE:
-    VGhpcyB3ZWJzaXRlIGlzIHByb3RlY3RlZCBieSBjb3B5cmlnaHQgbGF3LiBVbmF1dGhvcml6ZWQgY29weWluZywgZGlzdHJpYnV0aW9uLCBvciBtb2RpZmljYXRpb24gaXMgc3RyaWN0bHkgcHJvaGliaXRlZCBhbmQgbWF5IHJlc3VsdCBpbiBsZWdhbCBhY3Rpb24u
+    COPYRIGHT NOTICE:
+    This website is protected by copyright law. Unauthorized copying,
+    distribution, or modification is strictly prohibited and may result
+    in legal action.
     
-    All source code viewing and copying attempts are monitored and logged.
-    By viewing this source, you acknowledge these terms.
+    By viewing this source code, you acknowledge and agree to respect
+    our intellectual property rights.
 -->
 
 <!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
@@ -2271,17 +2252,15 @@
                 }
             }
             
-            // Monitor for Ctrl+U attempts
-            let ctrlUAttempts = 0;
+            // Monitor for Ctrl+U attempts - educational messaging
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
-                    ctrlUAttempts++;
-                    if (ctrlUAttempts > 2) {
-                        console.clear();
-                        console.log('%c⚠️ SECURITY NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
-                        console.log('%cThis source code is protected by copyright law.', 'color: orange; font-size: 14px;');
-                        console.log('%cUnauthorized copying is prohibited.', 'color: orange; font-size: 12px;');
-                    }
+                    // Show copyright notice on first attempt
+                    console.clear();
+                    console.log('%c⚠️ COPYRIGHT NOTICE', 'color: #FF6B35; font-size: 20px; font-weight: bold;');
+                    console.log('%cThis source code is protected by copyright law.', 'color: #004E89; font-size: 14px;');
+                    console.log('%cUnauthorized copying or distribution is prohibited.', 'color: #6c757d; font-size: 12px;');
+                    console.log('%c© ' + new Date().getFullYear() + ' Cam\'s CDL Center - All Rights Reserved', 'color: #6c757d; font-size: 12px;');
                 }
             });
         })();
