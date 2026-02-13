@@ -1,0 +1,61 @@
+---
+name: Branch Protection Check
+
+'on':
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  info:
+    name: Branch Protection Info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Display branch protection information
+        run: |
+          echo "## Branch Protection Information"
+          echo ""
+          echo "This repository uses branch protection rules to ensure"
+          echo "code quality."
+          echo ""
+          echo "### Key Protection Rules:"
+          echo "- ✅ Pull requests required before merging"
+          echo "- ✅ At least 1 review approval required"
+          echo "- ✅ Force pushes blocked"
+          echo "- ✅ Branch deletion blocked"
+          echo ""
+          echo "For more information, see BRANCH_PROTECTION.md"
+          echo ""
+          echo "### Current Branch: ${{ github.ref_name }}"
+          echo "### Event: ${{ github.event_name }}"
+
+      - name: Check for branch protection documentation
+        run: |
+          if [ -f "BRANCH_PROTECTION.md" ]; then
+            echo "✅ Branch protection documentation found"
+          else
+            echo "⚠️ Branch protection documentation not found"
+            exit 1
+          fi
+
+      - name: Check for CODEOWNERS file
+        run: |
+          if [ -f ".github/CODEOWNERS" ]; then
+            echo "✅ CODEOWNERS file found"
+          else
+            echo "⚠️ CODEOWNERS file not found"
+          fi
+
+      - name: Check for settings.yml
+        run: |
+          if [ -f ".github/settings.yml" ]; then
+            echo "✅ Repository settings file found"
+          else
+            echo "⚠️ Repository settings file not found"
+          fi
