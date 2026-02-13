@@ -23,19 +23,19 @@ The website's HTML source code was easily accessible via "View Page Source" (Ctr
 
 - **Location:** First `<script>` tag in `<head>`
 - **Features:**
-  - Detects `view-source:` protocol and redirects to blank page
-  - Runs before any other content loads
-  - Immediate developer tools detection on page load
-  - Displays copyright notice if dev tools are detected
+  - Early developer tools size detection
+  - Console warnings for copyright protection
+  - Runs before main content loads
+  - **Note:** View-source: protocol cannot be blocked via JavaScript (browser limitation)
 
 ### 3. **Enhanced View-Source Monitoring**
 
 - **Location:** Main security section in JavaScript
 - **Features:**
-  - Detects multiple view-source patterns
-  - Monitors repeated Ctrl+U attempts
-  - Logs security alerts to console after multiple attempts
+  - Monitors repeated Ctrl+U key attempts
+  - Console copyright notices after multiple attempts
   - Prevents iframe embedding
+  - **Note:** Serves as legal deterrent; technical blocking is limited by browser design
 
 ### 4. **Copyright Watermarks**
 
@@ -113,19 +113,28 @@ When someone attempts to view the source code:
 
 ## Important Notes
 
+### Technical Limitations
+
+**Browser Security Model:**
+- View-source cannot be blocked via JavaScript (browser security design)
+- JavaScript doesn't execute in view-source context
+- These protections work as legal deterrents and make copying harder
+
 ### What This DOES:
-✅ Deters casual copying and view-source attempts  
-✅ Makes source code harder to read and understand  
-✅ Provides legal documentation of protection  
-✅ Detects and warns about unauthorized access attempts  
-✅ Adds multiple layers of psychological deterrence  
+✅ Deters casual copying attempts  
+✅ Makes source code harder to read with watermarks and obfuscation  
+✅ Provides strong legal documentation of copyright protection  
+✅ Detects and warns about unauthorized access attempts via console  
+✅ Adds multiple layers of psychological and legal deterrence  
+✅ Makes the source visibly protected with copyright notices  
 
 ### What This DOES NOT:
-❌ Provide 100% foolproof protection (nothing can)  
-❌ Prevent determined developers from accessing source  
-❌ Protect against browser "Save As" functionality  
+❌ Provide 100% foolproof technical protection (impossible by design)  
+❌ Prevent determined developers from viewing source  
+❌ Block browser's built-in "View Page Source" completely  
 ❌ Prevent screenshots or manual retyping  
-❌ Replace need for legal copyright protection  
+❌ Replace need for legal copyright protection and DMCA  
+❌ Stop server-side source code access (wget, curl, etc.)  
 
 ### Legal Disclaimer
 

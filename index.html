@@ -22,26 +22,23 @@
 <head>
     <!-- Anti-View-Source Protection -->
     <script>
-        // Immediate execution - detect view-source and redirect
+        // Immediate execution - early developer tools detection
         (function() {
-            // Detect if page is being viewed as view-source
-            if (window.location.protocol === 'view-source:') {
-                window.location.href = 'about:blank';
-                return;
-            }
+            // Note: view-source: protocol cannot be blocked via JavaScript,
+            // but this serves as a deterrent and legal notice
             
-            // Additional check for developer tools open at page load
+            // Early check for developer tools open at page load
             const checkDevTools = function() {
                 const widthThreshold = window.outerWidth - window.innerWidth > 200;
                 const heightThreshold = window.outerHeight - window.innerHeight > 200;
                 
-                if (widthThreshold || heightThreshold) {
-                    document.documentElement.innerHTML = '<body style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial;background:#000;color:#fff;margin:0;"><div style="text-align:center;padding:40px;"><h1 style="color:#FF6B35;margin-bottom:20px;">⚠️ Access Restricted</h1><p style="font-size:18px;margin-bottom:10px;">This website\'s source code is protected by copyright.</p><p style="color:#aaa;margin-bottom:20px;">Please close developer tools and refresh the page.</p><p style="font-size:14px;color:#666;">© ' + new Date().getFullYear() + ' Cam\'s CDL Center - All Rights Reserved</p></div></body>
-<!-- End of Protected Content - © 2026 Cam's CDL Center - All Rights Reserved -->';
+                // Only trigger on extreme size differences to avoid false positives
+                if (widthThreshold && heightThreshold) {
+                    console.warn('Developer tools may be open. Source code is protected by copyright.');
                 }
             };
             
-            // Run check immediately
+            // Run check after page load, skip on localhost
             if (!window.location.href.includes('localhost')) {
                 setTimeout(checkDevTools, 100);
             }
@@ -2262,16 +2259,8 @@
         
         // Enhanced View-Source Protection
         (function() {
-            // Detect attempts to view source via various methods
-            const viewSourcePatterns = ['view-source:', 'view_source', 'page-source'];
-            const currentURL = window.location.href.toLowerCase();
-            
-            for (let pattern of viewSourcePatterns) {
-                if (currentURL.includes(pattern)) {
-                    window.location.href = 'about:blank';
-                    return;
-                }
-            }
+            // Note: Technical limitations - view-source: cannot be blocked via JS
+            // These measures serve as deterrents and legal documentation
             
             // Detect if page is in an iframe (additional protection)
             if (window.self !== window.top) {
@@ -2282,16 +2271,16 @@
                 }
             }
             
-            // Monitor for Ctrl+U attempts that might bypass initial prevention
+            // Monitor for Ctrl+U attempts
             let ctrlUAttempts = 0;
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
                     ctrlUAttempts++;
                     if (ctrlUAttempts > 2) {
                         console.clear();
-                        console.log('%c⚠️ SECURITY ALERT', 'color: red; font-size: 20px; font-weight: bold;');
-                        console.log('%cRepeated attempts to view source code have been detected and logged.', 'color: orange; font-size: 14px;');
-                        console.log('%cIP Address and activity are being monitored.', 'color: orange; font-size: 12px;');
+                        console.log('%c⚠️ SECURITY NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
+                        console.log('%cThis source code is protected by copyright law.', 'color: orange; font-size: 14px;');
+                        console.log('%cUnauthorized copying is prohibited.', 'color: orange; font-size: 12px;');
                     }
                 }
             });
