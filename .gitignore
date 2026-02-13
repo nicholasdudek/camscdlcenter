@@ -65,3 +65,8 @@ config/credentials.yml
 .azure/
 credentials.json
 serviceaccount.json
+
+# Backup files
+*.backup
+*.bak
+*~

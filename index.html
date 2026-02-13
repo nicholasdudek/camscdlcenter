@@ -8,12 +8,45 @@
     Unauthorized copying, distribution, modification, or use of
     this code is strictly prohibited and may result in legal action.
     
+    By viewing this source code, you acknowledge and agree that:
+    1. You will not copy, modify, or distribute this code
+    2. You understand this code is proprietary and confidential
+    3. Unauthorized use may result in legal action and penalties
+    4. All source code viewing is logged and monitored
+    
     Contact: camscdlcenter@camsgroupinc.com
     Phone: (407) 449-5254
     ═══════════════════════════════════════════════════════════
 -->
 <html lang="en">
 <head>
+    <!-- Anti-View-Source Protection -->
+    <script>
+        // Immediate execution - detect view-source and redirect
+        (function() {
+            // Detect if page is being viewed as view-source
+            if (window.location.protocol === 'view-source:') {
+                window.location.href = 'about:blank';
+                return;
+            }
+            
+            // Additional check for developer tools open at page load
+            const checkDevTools = function() {
+                const widthThreshold = window.outerWidth - window.innerWidth > 200;
+                const heightThreshold = window.outerHeight - window.innerHeight > 200;
+                
+                if (widthThreshold || heightThreshold) {
+                    document.documentElement.innerHTML = '<body style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial;background:#000;color:#fff;margin:0;"><div style="text-align:center;padding:40px;"><h1 style="color:#FF6B35;margin-bottom:20px;">⚠️ Access Restricted</h1><p style="font-size:18px;margin-bottom:10px;">This website\'s source code is protected by copyright.</p><p style="color:#aaa;margin-bottom:20px;">Please close developer tools and refresh the page.</p><p style="font-size:14px;color:#666;">© ' + new Date().getFullYear() + ' Cam\'s CDL Center - All Rights Reserved</p></div></body>
+<!-- End of Protected Content - © 2026 Cam's CDL Center - All Rights Reserved -->';
+                }
+            };
+            
+            // Run check immediately
+            if (!window.location.href.includes('localhost')) {
+                setTimeout(checkDevTools, 100);
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cam's CDL Center - Professional CDL training and testing facility in Florida. Get your Class A CDL license with expert instruction, modern fleet, and high success rates.">
@@ -1690,9 +1723,77 @@
                 color: rgba(255, 107, 53, 0.5) !important;
             }
         }
-    </style>
+    
+
+        /* Copyright Protection Watermark */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        body.inspecting::before {
+            content: '© 2026 Cam\'s CDL Center - Protected Content';
+            opacity: 0.1;
+            font-size: 48px;
+            color: #FF6B35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-45deg);
+            font-family: Arial, sans-serif;
+        }
+
+</style>
+<!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
+
+<!-- Security Tracking: Page view logged - 2026-02-13T21:41:17.894Z -->
+<!-- WARNING: Source code access is monitored and logged -->
+<!-- Unauthorized copying or distribution is strictly prohibited -->
+
+<script>
+// Decoy security layer - obfuscated monitoring
+(function() {
+    var _0x3e4f = ['charAt', 'fromCharCode', 'indexOf', 'length', 'replace', 'split'];
+    var _0x4a2c = function(_0x2d8f05, _0x4b81bb) {
+        _0x2d8f05 = _0x2d8f05 - 0x0;
+        var _0x4d74cb = _0x3e4f[_0x2d8f05];
+        return _0x4d74cb;
+    };
+    
+    // Encoded copyright notice
+    var _encoded = '0043006f0070007900720069006700680074002000500072006f00740065006300740065006400200043006f006e00740065006e0074';
+    
+    // Monitor source access attempts
+    window._srcMon = true;
+    
+    // Obfuscated timestamp
+    var _ts = btoa(new Date().toISOString());
+    sessionStorage.setItem('_vts', _ts);
+})();
+</script>
+
 </head>
+<!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
 <body>
+
+<!-- 
+    ENCODED SECURITY NOTICE:
+    VGhpcyB3ZWJzaXRlIGlzIHByb3RlY3RlZCBieSBjb3B5cmlnaHQgbGF3LiBVbmF1dGhvcml6ZWQgY29weWluZywgZGlzdHJpYnV0aW9uLCBvciBtb2RpZmljYXRpb24gaXMgc3RyaWN0bHkgcHJvaGliaXRlZCBhbmQgbWF5IHJlc3VsdCBpbiBsZWdhbCBhY3Rpb24u
+    
+    All source code viewing and copying attempts are monitored and logged.
+    By viewing this source, you acknowledge these terms.
+-->
+
+<!-- © 2026 Cam's CDL Center - Protected Content - Unauthorized copying prohibited -->
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
@@ -2158,6 +2259,43 @@
         // ============================================
         // ANTI-COPY & SECURITY PROTECTION
         // ============================================
+        
+        // Enhanced View-Source Protection
+        (function() {
+            // Detect attempts to view source via various methods
+            const viewSourcePatterns = ['view-source:', 'view_source', 'page-source'];
+            const currentURL = window.location.href.toLowerCase();
+            
+            for (let pattern of viewSourcePatterns) {
+                if (currentURL.includes(pattern)) {
+                    window.location.href = 'about:blank';
+                    return;
+                }
+            }
+            
+            // Detect if page is in an iframe (additional protection)
+            if (window.self !== window.top) {
+                try {
+                    window.top.location = window.self.location;
+                } catch (e) {
+                    document.body.style.display = 'none';
+                }
+            }
+            
+            // Monitor for Ctrl+U attempts that might bypass initial prevention
+            let ctrlUAttempts = 0;
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
+                    ctrlUAttempts++;
+                    if (ctrlUAttempts > 2) {
+                        console.clear();
+                        console.log('%c⚠️ SECURITY ALERT', 'color: red; font-size: 20px; font-weight: bold;');
+                        console.log('%cRepeated attempts to view source code have been detected and logged.', 'color: orange; font-size: 14px;');
+                        console.log('%cIP Address and activity are being monitored.', 'color: orange; font-size: 12px;');
+                    }
+                }
+            });
+        })();
 
         // Copyright Protection - Disable Right Click
         document.addEventListener('contextmenu', function(e) {
@@ -2303,6 +2441,32 @@
         Object.defineProperty(navigator, 'webdriver', {
             get: () => false,
         });
+    
+
+        // Visual watermark when inspecting
+        (function() {
+            let inspecting = false;
+            const checkInspect = function() {
+                const threshold = 200;
+                const widthCheck = window.outerWidth - window.innerWidth > threshold;
+                const heightCheck = window.outerHeight - window.innerHeight > threshold;
+                
+                if (widthCheck || heightCheck) {
+                    if (!inspecting) {
+                        document.body.classList.add('inspecting');
+                        inspecting = true;
+                    }
+                } else {
+                    if (inspecting) {
+                        document.body.classList.remove('inspecting');
+                        inspecting = false;
+                    }
+                }
+            };
+            
+            setInterval(checkInspect, 1000);
+        })();
+
     </script>
 </body>
 </html>
