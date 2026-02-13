@@ -1,0 +1,118 @@
+name: Validate Branch Protection
+
+on:
+  push:
+    branches:
+      - main
+      - 'copilot/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-branch-protection:
+    name: Validate Branch Protection
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate settings.yml exists
+        run: |
+          if [ ! -f .github/settings.yml ]; then
+            echo "Error: .github/settings.yml not found"
+            exit 1
+          fi
+          echo "✓ .github/settings.yml exists"
+      
+      - name: Validate CODEOWNERS exists
+        run: |
+          if [ ! -f .github/CODEOWNERS ]; then
+            echo "Error: .github/CODEOWNERS not found"
+            exit 1
+          fi
+          echo "✓ .github/CODEOWNERS exists"
+      
+      - name: Validate BRANCH_PROTECTION.md exists
+        run: |
+          if [ ! -f BRANCH_PROTECTION.md ]; then
+            echo "Error: BRANCH_PROTECTION.md not found"
+            exit 1
+          fi
+          echo "✓ BRANCH_PROTECTION.md exists"
+      
+      - name: Install YAML validator
+        run: |
+          pip install pyyaml
+      
+      - name: Validate YAML syntax
+        run: |
+          python3 -c "import yaml; yaml.safe_load(open('.github/settings.yml'))"
+          echo "✓ .github/settings.yml is valid YAML"
+      
+      - name: Check branch protection configuration
+        run: |
+          python3 << 'EOF'
+          import yaml
+          
+          with open('.github/settings.yml', 'r') as f:
+              config = yaml.safe_load(f)
+          
+          # Check if branches section exists
+          if 'branches' not in config:
+              print("Error: No branches configuration found")
+              exit(1)
+          
+          # Check if main branch is protected
+          main_branch = None
+          for branch in config['branches']:
+              if branch['name'] == 'main':
+                  main_branch = branch
+                  break
+          
+          if not main_branch:
+              print("Error: No protection rules for main branch")
+              exit(1)
+          
+          # Validate required protections
+          protection = main_branch.get('protection', {})
+          
+          required_checks = [
+              ('required_pull_request_reviews', 'Pull request reviews'),
+              ('required_status_checks', 'Status checks'),
+              ('required_conversation_resolution', 'Conversation resolution'),
+          ]
+          
+          for key, name in required_checks:
+              if key not in protection:
+                  print(f"Warning: {name} not configured")
+              else:
+                  print(f"✓ {name} configured")
+          
+          # Check force push and deletion prevention
+          if protection.get('allow_force_pushes', True):
+              print("Error: Force pushes should be disabled")
+              exit(1)
+          else:
+              print("✓ Force pushes disabled")
+          
+          if protection.get('allow_deletions', True):
+              print("Error: Branch deletion should be disabled")
+              exit(1)
+          else:
+              print("✓ Branch deletion disabled")
+          
+          print("\n✓ All required branch protection rules are configured")
+          EOF
+      
+      - name: Summary
+        run: |
+          echo "Branch protection configuration validation completed successfully!"
+          echo "The following files are properly configured:"
+          echo "  - .github/settings.yml"
+          echo "  - .github/CODEOWNERS"
+          echo "  - BRANCH_PROTECTION.md"

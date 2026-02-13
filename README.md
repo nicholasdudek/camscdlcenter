@@ -51,6 +51,18 @@ Professional CDL training and testing facility website for Cam's CDL Center in F
 - FormSubmit.co for email handling
 - Responsive design with mobile-first approach
 
+## 🔒 Branch Protection
+
+This repository has branch protection rules enabled for the `main` branch to ensure code quality and prevent accidental mistakes:
+
+- ✅ Pull request reviews required before merging
+- ✅ Status checks must pass before merging
+- ✅ Conversation resolution required
+- ✅ Force pushes prevented
+- ✅ Branch deletion prevented
+
+See [BRANCH_PROTECTION.md](BRANCH_PROTECTION.md) for detailed information on branch protection configuration and contributing workflow.
+
 ## 📄 License
 
 © 2026 Cam's CDL Center - All Rights Reserved
