@@ -1,0 +1,22 @@
+# CODEOWNERS file
+# This file defines code ownership for automatic review requests
+# Lines starting with '#' are comments
+# Each line is a file pattern followed by one or more owners
+
+# Default owners for all files in the repository
+# These owners will be requested for review when anyone opens a pull request
+*       @nicholasdudek
+
+# Specific file patterns can have different owners
+# Examples:
+# /docs/          @nicholasdudek
+# *.html          @nicholasdudek
+# *.css           @nicholasdudek
+# *.js            @nicholasdudek
+
+# GitHub configuration files
+/.github/       @nicholasdudek
+
+# Documentation files
+README.md       @nicholasdudek
+*.md            @nicholasdudek
