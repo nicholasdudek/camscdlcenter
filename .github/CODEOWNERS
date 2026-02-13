@@ -1,0 +1,16 @@
+# CODEOWNERS file for nicholasdudek/camscdlcenter
+# This file defines individuals or teams responsible for code in the repository
+# Reference: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+# This ensures all PRs require review from the repository owner
+* @nicholasdudek
+
+# Branch protection configuration files
+/.github/settings.yml @nicholasdudek
+/.github/CODEOWNERS @nicholasdudek
+/BRANCH_PROTECTION.md @nicholasdudek
+
+# Website core files
+/index.html @nicholasdudek
+/README.md @nicholasdudek

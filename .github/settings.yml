@@ -1,0 +1,95 @@
+# Repository settings for nicholasdudek/camscdlcenter
+# This file is compatible with Probot Settings app and GitHub's settings sync
+# Reference: https://github.com/probot/settings
+
+repository:
+  # Repository name
+  name: camscdlcenter
+  
+  # Description shown at top of repository
+  description: Professional CDL training and testing facility website for Cam's CDL Center in Florida
+  
+  # Repository homepage
+  homepage: https://camscdlcenter.com
+  
+  # Repository topics
+  topics:
+    - cdl
+    - trucking
+    - cdl-training
+    - website
+    - github-pages
+  
+  # Visibility (public/private)
+  private: false
+  
+  # Enable/disable features
+  has_issues: true
+  has_projects: true
+  has_wiki: false
+  has_downloads: true
+  
+  # Default branch
+  default_branch: main
+  
+  # Allow squash merging
+  allow_squash_merge: true
+  
+  # Allow merge commits
+  allow_merge_commit: false
+  
+  # Allow rebase merging
+  allow_rebase_merge: true
+  
+  # Allow auto-merge
+  allow_auto_merge: false
+  
+  # Delete branch on merge
+  delete_branch_on_merge: true
+
+# Branch protection rules
+branches:
+  - name: main
+    # Require pull request reviews before merging
+    protection:
+      # Require at least one approving review on a pull request before merging
+      required_pull_request_reviews:
+        # Dismiss stale pull request approvals when new commits are pushed
+        dismiss_stale_reviews: true
+        # Require review from Code Owners
+        require_code_owner_reviews: false
+        # Number of required approving reviews (1 for solo work)
+        required_approving_review_count: 1
+        # Bypass pull request allowances
+        bypass_pull_request_allowances:
+          users: []
+          teams: []
+      
+      # Require status checks to pass before merging
+      required_status_checks:
+        # Require branches to be up to date before merging
+        strict: true
+        # List of required status checks
+        contexts:
+          - "Validate Branch Protection"
+      
+      # Enforce all configured restrictions for administrators
+      enforce_admins: false
+      
+      # Require conversation resolution before merging
+      required_conversation_resolution: true
+      
+      # Prevent force pushes
+      allow_force_pushes: false
+      
+      # Prevent deletion of the branch
+      allow_deletions: false
+      
+      # Require signed commits
+      required_signatures: false
+      
+      # Require linear history (no merge commits)
+      required_linear_history: false
+      
+      # Restrictions on who can push to the branch
+      restrictions: null
