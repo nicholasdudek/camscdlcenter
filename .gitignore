@@ -70,3 +70,12 @@ serviceaccount.json
 *.backup
 *.bak
 *~
+
+# Build artifacts and dependencies
+node_modules/
+package-lock.json
+*.log
+
+# Unminified source files (only commit minified versions)
+styles.css
+main.js

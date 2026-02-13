@@ -10,7 +10,22 @@ The website's HTML source code was easily accessible via "View Page Source" (Ctr
 
 ## Protection Layers Implemented
 
-### 1. **Enhanced Legal Notices**
+### 1. **Code Splitting & Obfuscation** (NEW)
+
+- **Location:** Entire codebase structure
+- **Features:**
+  - Code split into 3 separate files (HTML, CSS, JS)
+  - CSS minified to single line (48% size reduction)
+  - JavaScript heavily obfuscated with advanced techniques:
+    - Control flow flattening (75%)
+    - Dead code injection (40%)
+    - String array encoding with base64
+    - Hexadecimal variable names (_0x4a2c, etc.)
+    - Self-defending code
+  - Makes copying and understanding extremely difficult
+  - See BUILD.md for complete documentation
+
+### 2. **Enhanced Legal Notices**
 
 - **Location:** Top HTML comment block
 - **Features:**
