@@ -1,0 +1,26 @@
+{
+  "name": "camscdlcenter",
+  "version": "1.0.0",
+  "description": "Professional CDL training and testing facility website for Cam's CDL Center in Florida.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholasdudek/camscdlcenter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nicholasdudek/camscdlcenter/issues"
+  },
+  "homepage": "https://github.com/nicholasdudek/camscdlcenter#readme",
+  "devDependencies": {
+    "csso-cli": "^4.0.2",
+    "javascript-obfuscator": "^5.3.0",
+    "terser": "^5.46.0"
+  }
+}

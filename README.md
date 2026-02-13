@@ -51,6 +51,43 @@ Professional CDL training and testing facility website for Cam's CDL Center in F
 - FormSubmit.co for email handling
 - Responsive design with mobile-first approach
 
+## 🏗️ Project Structure
+
+The website uses a modular architecture for enhanced security:
+
+- **`index.html`** - Main HTML structure (376 lines, 21 KB)
+- **`styles.min.css`** - Minified CSS stylesheet (24 KB)
+- **`main.min.js`** - Obfuscated JavaScript (106 KB)
+
+### Source Code Protection
+
+To prevent unauthorized copying, the code is:
+- ✅ **Split** into separate files (HTML, CSS, JS)
+- ✅ **Minified** - CSS compressed to single line
+- ✅ **Obfuscated** - JavaScript heavily scrambled with hexadecimal identifiers
+- ✅ **Copyright Protected** - Legal notices in all files
+
+See **[BUILD.md](BUILD.md)** for complete documentation on:
+- How code is obfuscated
+- Building production files
+- File structure
+- Security benefits
+- Maintenance procedures
+
+### Development vs Production
+
+**Development Files** (not deployed):
+- `styles.css` - Readable CSS source
+- `main.js` - Readable JavaScript source
+- `build.js` - Build script
+
+**Production Files** (deployed):
+- `index.html` - HTML structure
+- `styles.min.css` - Minified CSS
+- `main.min.js` - Obfuscated JavaScript
+
+Run `./build.sh` to rebuild production files from source.
+
 ## 📄 License
 
 © 2026 Cam's CDL Center - All Rights Reserved
