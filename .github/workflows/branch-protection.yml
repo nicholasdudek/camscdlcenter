@@ -50,6 +50,7 @@ jobs:
             echo "✅ CODEOWNERS file found"
           else
             echo "⚠️ CODEOWNERS file not found"
+            exit 1
           fi
 
       - name: Check for settings.yml
@@ -58,4 +59,5 @@ jobs:
             echo "✅ Repository settings file found"
           else
             echo "⚠️ Repository settings file not found"
+            exit 1
           fi
